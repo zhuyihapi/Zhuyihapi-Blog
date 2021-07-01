@@ -1,242 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/Zhuyihapi-Blog/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/Zhuyihapi-Blog/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/Zhuyihapi-Blog/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/Zhuyihapi-Blog/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/Zhuyihapi-Blog/css/main.css">
-
-
-<link rel="stylesheet" href="/Zhuyihapi-Blog/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhuyihapi.github.io","root":"/Zhuyihapi-Blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="Machine LearningIndex[toc] 1 Introduction1.1 Supervised LearnA “right answer” given RegressionPredict continuous valued output (e.g. housing price) Related algorithms:  Linear regression Neural Networ">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://zhuyihapi.github.io/Zhuyihapi-Blog/2021/05/25/Machine%20Learning/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Machine LearningIndex[toc] 1 Introduction1.1 Supervised LearnA “right answer” given RegressionPredict continuous valued output (e.g. housing price) Related algorithms:  Linear regression Neural Networ">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524114255.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524114302.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524160449.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524170532.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524171531.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524171740.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524215954.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524221122.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210525151235.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210525151843.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210525165812.png">
-<meta property="og:image" content="https://zhuyihapi.github.io/Library/Application%20Support/typora-user-images/image-20210528155332940.png">
-<meta property="article:published_time" content="2021-05-25T08:58:33.000Z">
-<meta property="article:modified_time" content="2021-06-13T01:25:59.000Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhuyihapi/picture/main/20210524114255.png">
-
-<link rel="canonical" href="https://zhuyihapi.github.io/Zhuyihapi-Blog/2021/05/25/Machine%20Learning/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
-
-  <title> | Hexo</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/Zhuyihapi-Blog/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/Zhuyihapi-Blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/Zhuyihapi-Blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/Zhuyihapi-Blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/Zhuyihapi-Blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/Zhuyihapi-Blog/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zhuyihapi.github.io/Zhuyihapi-Blog/2021/05/25/Machine%20Learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/Zhuyihapi-Blog/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-25 16:58:33" itemprop="dateCreated datePublished" datetime="2021-05-25T16:58:33+08:00">2021-05-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-13 09:25:59" itemprop="dateModified" datetime="2021-06-13T09:25:59+08:00">2021-06-13</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>24k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>22 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h1 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx">Machine Learning</a></h1><h2 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h2><p>[toc]</p>
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>first test</title>
+    <url>/Zhuyihapi-Blog/2021/07/01/first-test/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/Zhuyihapi-Blog/2021/05/25/Machine%20Learning/</url>
+    <content><![CDATA[<h1 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a><a href="https://www.bilibili.com/video/BV164411b7dx">Machine Learning</a></h1><h2 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h2><p>[toc]</p>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h2><h3 id="1-1-Supervised-Learn"><a href="#1-1-Supervised-Learn" class="headerlink" title="1.1 Supervised Learn"></a>1.1 Supervised Learn</h3><p>A “right answer” given</p>
 <h4 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h4><p>Predict continuous valued output (e.g. housing price)</p>
 <p><strong>Related algorithms</strong>:</p>
@@ -255,7 +27,7 @@
 <li>Decision Trees</li>
 <li>Neural Networks</li>
 </ul>
-<h3 id="1-2-Unsupervised-Learn"><a href="#1-2-Unsupervised-Learn" class="headerlink" title="1.2 Unsupervised Learn"></a>1.2 Unsupervised Learn</h3><h4 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78382376">Cluster</a></h4><p><strong>Applications</strong>:</p>
+<h3 id="1-2-Unsupervised-Learn"><a href="#1-2-Unsupervised-Learn" class="headerlink" title="1.2 Unsupervised Learn"></a>1.2 Unsupervised Learn</h3><h4 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a><a href="https://zhuanlan.zhihu.com/p/78382376">Cluster</a></h4><p><strong>Applications</strong>:</p>
 <blockquote>
 <p>聚类：将相似的对象归到同一个簇中，使得同一个簇内的数据对象的相似性尽可能大，同时不在同一个簇中的数据对象的差异性也尽可能地大。</p>
 </blockquote>
@@ -265,7 +37,7 @@
 <li>Organize computing cluster</li>
 <li>Astronomical data analysis</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68"><strong>Related algorithms</strong></a>:</p>
+<p><a href="https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68"><strong>Related algorithms</strong></a>:</p>
 <ul>
 <li>K-Means Clustering</li>
 <li>Mean-Shift Clustering</li>
@@ -281,7 +53,7 @@
 <blockquote>
 <p>$\theta_1$代表斜率而$\theta_0$则代表由代价函数计算出的差值</p>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/geaozhang/p/11442343.html"><strong>Cost Function 代价函数</strong></a>:<br>$$<br>J(θ_0,θ_1)=\frac {1}{2m}\sum_{i=1}^m(h_θ(x^{(i)})-y^{(i)})^2<br>$$</p>
+<p><a href="https://www.cnblogs.com/geaozhang/p/11442343.html"><strong>Cost Function 代价函数</strong></a>:<br>$$<br>J(θ_0,θ_1)=\frac {1}{2m}\sum_{i=1}^m(h_θ(x^{(i)})-y^{(i)})^2<br>$$</p>
 <blockquote>
 <p>minimize squared error cost function (最小化平方差代价函数)</p>
 </blockquote>
@@ -557,7 +329,7 @@
 <p>There are multi-class problems as well that y can take value from 0, 1, 2, 3,…</p>
 </blockquote>
 <p>Learning regression isn’t fit the classification problem</p>
-<p>In the <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV164411b7dx?p=32&t=160">video</a> there is an example to explain it. </p>
+<p>In the <a href="https://www.bilibili.com/video/BV164411b7dx?p=32&t=160">video</a> there is an example to explain it. </p>
 <p>Another example:</p>
 <p>Classification: y = 0 or 1</p>
 <p>​    $H_\theta(x)$ can be $&gt;1$ or $&lt;0$ if we use the linear regression</p>
@@ -935,205 +707,27 @@
 
 <h4 id="Batch-gradient-descent"><a href="#Batch-gradient-descent" class="headerlink" title="Batch gradient descent"></a>Batch gradient descent</h4><h4 id="Stochastic-gradient-descent"><a href="#Stochastic-gradient-descent" class="headerlink" title="Stochastic gradient descent"></a>Stochastic gradient descent</h4><h3 id="17-3-Mini-batch-gradient-descent"><a href="#17-3-Mini-batch-gradient-descent" class="headerlink" title="17.3 Mini-batch gradient descent"></a>17.3 Mini-batch gradient descent</h3><h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><p>\begin{bmatrix}\end{bmatrix}</p>
 <p>\mathbb R</p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/25f0139637b7">公式</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e74eb43960a1">公式2</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/191d1e21f7ed">语法</a></p>
+<p><a href="https://www.jianshu.com/p/25f0139637b7">公式</a></p>
+<p><a href="https://www.jianshu.com/p/e74eb43960a1">公式2</a></p>
+<p><a href="https://www.jianshu.com/p/191d1e21f7ed">语法</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/Zhuyihapi-Blog/2021/07/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-    </div>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-    
-    
-    
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-      <footer class="post-footer">
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item"></div>
-      <div class="post-nav-item">
-    <a href="/Zhuyihapi-Blog/2021/07/01/hello-world/" rel="next" title="Hello World">
-      Hello World <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Index"><span class="nav-number">1.1.</span> <span class="nav-text">Index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.2.</span> <span class="nav-text">1 Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Supervised-Learn"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.1 Supervised Learn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Regression"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Classification"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Classification</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Unsupervised-Learn"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2 Unsupervised Learn</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cluster"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Cluster</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Linear-Regression-with-One-Variable"><span class="nav-number">1.3.</span> <span class="nav-text">2 Linear Regression with One Variable</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-Model-Representation-Notation"><span class="nav-number">1.3.1.</span> <span class="nav-text">2.0 Model Representation - Notation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Model-and-Cost-Function"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.1 Model and Cost Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Parameter-Learning-Gradient-Descent"><span class="nav-number">1.3.3.</span> <span class="nav-text">2.2 Parameter Learning - Gradient Descent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Outline"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradient-descent-algorithm"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">Gradient descent algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradient-descent-intuition"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">Gradient descent intuition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gradient-descent-for-linear-regression"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">Gradient descent for linear regression</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Linear-Algebra-review-optional"><span class="nav-number">1.4.</span> <span class="nav-text">3 Linear Algebra review (optional)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Matrices-and-vectors"><span class="nav-number">1.4.1.</span> <span class="nav-text">3.1 Matrices and vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">Matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vector"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">Vector</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Addition-and-Scalar-multiplication"><span class="nav-number">1.4.2.</span> <span class="nav-text">3.2 Addition and Scalar multiplication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Matrix-vector-multiplication"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.3 Matrix-vector multiplication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-Matrix-matrix-multiplication"><span class="nav-number">1.4.4.</span> <span class="nav-text">3.4 Matrix-matrix multiplication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-Matrix-multiplication-properties"><span class="nav-number">1.4.5.</span> <span class="nav-text">3.5 Matrix multiplication properties</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Identity-Matrix"><span class="nav-number">1.4.5.1.</span> <span class="nav-text">Identity Matrix</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-Inverse-and-Transpose"><span class="nav-number">1.4.6.</span> <span class="nav-text">3.6 Inverse and Transpose</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-inverse"><span class="nav-number">1.4.6.1.</span> <span class="nav-text">Matrix inverse</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-transpose"><span class="nav-number">1.4.6.2.</span> <span class="nav-text">Matrix transpose</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Linear-Regression-with-Multiple-Variables"><span class="nav-number">1.5.</span> <span class="nav-text">4 Linear Regression with Multiple Variables</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Multiple-feature"><span class="nav-number">1.5.1.</span> <span class="nav-text">4.1 Multiple feature</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Notation"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">Notation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multivariate-linear-regression"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">Multivariate linear regression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Gradient-descent-for-multiple-variables"><span class="nav-number">1.5.2.</span> <span class="nav-text">4.2 Gradient descent for multiple variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Gradient-descent-in-practice-I-Feature-Scaling"><span class="nav-number">1.5.3.</span> <span class="nav-text">4.3 Gradient descent in practice I: Feature Scaling</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-Scaling"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">Feature Scaling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mean-normalization"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">Mean normalization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-Gradient-descent-in-practice-II-Learning-rate"><span class="nav-number">1.5.4.</span> <span class="nav-text">4.4 Gradient descent in practice II: Learning rate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-Features-and-polynomial-regression"><span class="nav-number">1.5.5.</span> <span class="nav-text">4.5 Features and polynomial regression</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Choice-of-feature"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">Choice of feature</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-Normal-equation-unfinished"><span class="nav-number">1.5.6.</span> <span class="nav-text">4.6 Normal equation (unfinished)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Compare-to-Gradient-Descent"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">Compare to Gradient Descent</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-Normal-equation-and-non-invertibility-optional-unfinished"><span class="nav-number">1.5.7.</span> <span class="nav-text">4.7 Normal equation and non-invertibility (optional) (unfinished)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Octave-Tutorial-ignored"><span class="nav-number">1.6.</span> <span class="nav-text">5 Octave Tutorial (ignored)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Logistic-Regression"><span class="nav-number">1.7.</span> <span class="nav-text">6 Logistic Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-Classification"><span class="nav-number">1.7.1.</span> <span class="nav-text">6.1 Classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-Hypothesis-Representation"><span class="nav-number">1.7.2.</span> <span class="nav-text">6.2 Hypothesis Representation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Logistic-Regression-Model"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">Logistic Regression Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mathematical-formula-definition-of-the-hypothesis-for-logistic-regression"><span class="nav-number">1.7.2.2.</span> <span class="nav-text">Mathematical formula definition of the hypothesis for logistic regression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-Decision-boundary"><span class="nav-number">1.7.3.</span> <span class="nav-text">6.3 Decision boundary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Decision-Boundary"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">Decision Boundary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Non-linear-decision-boundaries"><span class="nav-number">1.7.3.2.</span> <span class="nav-text">Non-linear decision boundaries</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-Cost-function"><span class="nav-number">1.7.4.</span> <span class="nav-text">6.4 Cost function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cost-function-Logistic-regression-cost-function"><span class="nav-number">1.7.4.1.</span> <span class="nav-text">Cost function - Logistic regression cost function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-simplified-cost-function-and-gradient-descent"><span class="nav-number">1.7.5.</span> <span class="nav-text">6.5 simplified cost function and gradient descent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Logistic-regression-cost-function"><span class="nav-number">1.7.5.1.</span> <span class="nav-text">Logistic regression cost function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Implementation-of-logistic-regression"><span class="nav-number">1.7.5.2.</span> <span class="nav-text">Implementation of logistic regression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-Advanced-optimization"><span class="nav-number">1.7.6.</span> <span class="nav-text">6.6 Advanced optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Optimization-algorithm"><span class="nav-number">1.7.6.1.</span> <span class="nav-text">Optimization algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-Multi-class-classification-One-vs-all-unfinished"><span class="nav-number">1.7.7.</span> <span class="nav-text">6.7 Multi-class classification: One-vs-all (unfinished)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiclass-classification"><span class="nav-number">1.7.7.1.</span> <span class="nav-text">Multiclass classification</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Regularization-unfinished"><span class="nav-number">1.8.</span> <span class="nav-text">7 Regularization (unfinished)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-The-problem-of-overfitting"><span class="nav-number">1.8.1.</span> <span class="nav-text">7.1 The problem of overfitting</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Overfitting"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">Overfitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Addressing-overfitting"><span class="nav-number">1.8.1.2.</span> <span class="nav-text">Addressing overfitting</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Neural-Networks-Representation"><span class="nav-number">1.9.</span> <span class="nav-text">8 Neural Networks: Representation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-Non-linear-hypothesis"><span class="nav-number">1.9.1.</span> <span class="nav-text">8.1 Non-linear hypothesis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-Neurons-and-the-brain"><span class="nav-number">1.9.2.</span> <span class="nav-text">8.2 Neurons and the brain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-Model-representation-I"><span class="nav-number">1.9.3.</span> <span class="nav-text">8.3 Model representation I</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Neuron-model-Logistic-unit"><span class="nav-number">1.9.3.1.</span> <span class="nav-text">Neuron model: Logistic unit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Neural-Network"><span class="nav-number">1.9.3.2.</span> <span class="nav-text">Neural Network</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-Model-representation-II"><span class="nav-number">1.9.4.</span> <span class="nav-text">8.4 Model representation II</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Forward-propagation-Vectorized-implementation"><span class="nav-number">1.9.4.1.</span> <span class="nav-text">Forward propagation: Vectorized implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Neural-Network-learning-its-own-features"><span class="nav-number">1.9.4.2.</span> <span class="nav-text">Neural Network learning its own features</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-network-architectures"><span class="nav-number">1.9.4.3.</span> <span class="nav-text">Other network architectures</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-Examples-and-intoitions-unfinished"><span class="nav-number">1.9.5.</span> <span class="nav-text">8.5 Examples and intoitions (unfinished)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Neural-Networks-Learning-unfinished"><span class="nav-number">1.10.</span> <span class="nav-text">9 Neural Networks: Learning (unfinished)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-Advice-for-applying-machine-learning-unfinished"><span class="nav-number">1.11.</span> <span class="nav-text">10 Advice for applying machine learning (unfinished)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-Machine-Learning-system-design-unfinished"><span class="nav-number">1.12.</span> <span class="nav-text">11 Machine Learning system design (unfinished)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-Support-Vector-Machines-unfinished"><span class="nav-number">1.13.</span> <span class="nav-text">12 Support Vector Machines (unfinished)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-Clustering"><span class="nav-number">1.14.</span> <span class="nav-text">13 Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-0-Notation"><span class="nav-number">1.14.1.</span> <span class="nav-text">13.0 Notation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-1-K-means-algorithm"><span class="nav-number">1.14.2.</span> <span class="nav-text">13.1 K-means algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means-algorithm"><span class="nav-number">1.14.2.1.</span> <span class="nav-text">K-means algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-2-Optimization-objective"><span class="nav-number">1.14.3.</span> <span class="nav-text">13.2 Optimization objective</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#K-means-optimization-objective"><span class="nav-number">1.14.3.1.</span> <span class="nav-text">K-means optimization objective</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optimization-objective"><span class="nav-number">1.14.3.2.</span> <span class="nav-text">Optimization objective:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-3-Randomly-initialization"><span class="nav-number">1.14.4.</span> <span class="nav-text">13.3 Randomly initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-4-Choosing-the-number-of-cluster"><span class="nav-number">1.14.5.</span> <span class="nav-text">13.4 Choosing the number of cluster</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-Dimensionaliy-Reduction-unfinished"><span class="nav-number">1.15.</span> <span class="nav-text">14 Dimensionaliy Reduction (unfinished)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-Anomaly-Detection-unfinished"><span class="nav-number">1.16.</span> <span class="nav-text">15 Anomaly Detection (unfinished)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-Recommeder-Systems-unfinished"><span class="nav-number">1.17.</span> <span class="nav-text">16 Recommeder Systems (unfinished)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-Large-Scale-Machine-Learning-unfinished"><span class="nav-number">1.18.</span> <span class="nav-text">17 Large Scale Machine Learning (unfinished)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#17-1-Learning-with-large-datasets"><span class="nav-number">1.18.1.</span> <span class="nav-text">17.1 Learning with large datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-2-Stochastic-gradient-descent"><span class="nav-number">1.18.2.</span> <span class="nav-text">17.2 Stochastic gradient descent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Review-linear-regression-with-gradient-descent"><span class="nav-number">1.18.2.1.</span> <span class="nav-text">Review linear regression with gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Batch-gradient-descent"><span class="nav-number">1.18.2.2.</span> <span class="nav-text">Batch gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic-gradient-descent"><span class="nav-number">1.18.2.3.</span> <span class="nav-text">Stochastic gradient descent</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-3-Mini-batch-gradient-descent"><span class="nav-number">1.18.3.</span> <span class="nav-text">17.3 Mini-batch gradient descent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown"><span class="nav-number">1.19.</span> <span class="nav-text">Markdown</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/Zhuyihapi-Blog/archives/">
-        
-          <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/zhuyihapi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhuyihapi" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:zhuyihapi@gmail.com" title="E-Mail → mailto:zhuyihapi@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
-    </span>
-    <span title="Symbols count total">25k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="Reading time total">22 mins.</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/Zhuyihapi-Blog/lib/anime.min.js"></script>
-  <script src="/Zhuyihapi-Blog/lib/velocity/velocity.min.js"></script>
-  <script src="/Zhuyihapi-Blog/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/Zhuyihapi-Blog/js/utils.js"></script>
-
-<script src="/Zhuyihapi-Blog/js/motion.js"></script>
-
-
-<script src="/Zhuyihapi-Blog/js/schemes/muse.js"></script>
-
-
-<script src="/Zhuyihapi-Blog/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
-</html>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+</search>
