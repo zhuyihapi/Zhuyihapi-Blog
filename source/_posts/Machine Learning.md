@@ -1,5 +1,11 @@
 
 
+---
+title: On the Electrodynamics of Moving Bodies
+categories: Physics
+mathjax: true
+---
+
 # [Machine Learning](https://www.bilibili.com/video/BV164411b7dx)
 
 
