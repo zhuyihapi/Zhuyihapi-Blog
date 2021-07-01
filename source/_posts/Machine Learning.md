@@ -1,8 +1,8 @@
 
 
 ---
-title: On the Electrodynamics of Moving Bodies
-categories: Physics
+title: Machine Learning
+categories: Machine Learning
 mathjax: true
 ---
 
