@@ -62,6 +62,10 @@ Discrete valued output (0 or 1)
 
 
 
+<!-- more -->
+
+
+
 ## 2 Linear Regression with One Variable
 
 ### 2.0 Model Representation - Notation
