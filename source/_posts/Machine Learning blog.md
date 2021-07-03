@@ -2,17 +2,10 @@
 
 ---
 title: Machine Learning
-mathjax: true
-
 ---
 
 # [Machine Learning](https://www.bilibili.com/video/BV164411b7dx)
 
-
-
-## Index
-
-[toc]
 
 
 
