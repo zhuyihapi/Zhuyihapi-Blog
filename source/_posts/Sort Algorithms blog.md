@@ -8,10 +8,6 @@ tag: Data structure and algorithm
 
 # Sort Algorithm
 
-## Contents
-
-[toc]
-
 
 
 ## 1 [Quick Sort](http://data.biancheng.net/view/117.html)
@@ -125,6 +121,8 @@ public class QuickSort {
 #### Space usage
 
 - $O(1)$
+
+<!-- more -->
 
 
 
