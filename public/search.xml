@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title>Machine Learning</title>
     <url>/Zhuyihapi-Blog/2021/05/25/Machine%20Learning%20blog/</url>
     <content><![CDATA[<h2 id="introduction">1 Introduction</h2>
 <h3 id="supervised-learn">1.1 Supervised Learn</h3>
@@ -765,6 +765,9 @@
 <p><a href="https://www.jianshu.com/p/e74eb43960a1">公式2</a></p>
 <p><a href="https://www.jianshu.com/p/191d1e21f7ed">语法</a></p>
 ]]></content>
+      <tags>
+        <tag>AI</tag>
+      </tags>
   </entry>
   <entry>
     <title>first test</title>
