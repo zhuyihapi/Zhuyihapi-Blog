@@ -1,5 +1,3 @@
-
-
 ---
 title: Machine Learning
 tag: AI
