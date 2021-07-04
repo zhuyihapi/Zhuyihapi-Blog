@@ -2,12 +2,8 @@
 
 ---
 title: Machine Learning
+tag: AI
 ---
-
-# [Machine Learning](https://www.bilibili.com/video/BV164411b7dx)
-
-
-
 
 ## 1 Introduction
 
