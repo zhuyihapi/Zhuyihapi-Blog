@@ -3,8 +3,7 @@
   <entry>
     <title></title>
     <url>/Zhuyihapi-Blog/2021/05/25/Machine%20Learning%20blog/</url>
-    <content><![CDATA[<h1 id="machine-learning"><a href="https://www.bilibili.com/video/BV164411b7dx">Machine Learning</a></h1>
-<h2 id="introduction">1 Introduction</h2>
+    <content><![CDATA[<h2 id="introduction">1 Introduction</h2>
 <h3 id="supervised-learn">1.1 Supervised Learn</h3>
 <p>A "right answer" given</p>
 <h4 id="regression">Regression</h4>
@@ -772,6 +771,9 @@
     <url>/Zhuyihapi-Blog/2021/07/01/first-test/</url>
     <content><![CDATA[<p>Test 1</p>
 ]]></content>
+      <tags>
+        <tag>test</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
