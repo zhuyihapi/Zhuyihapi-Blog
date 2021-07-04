@@ -8,7 +8,7 @@ subtitle: 'Still under renovation'
 description: 'Study notes and essays'
 keywords:
 author: Zhuyihapi
-language: en
+language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
@@ -119,6 +119,7 @@ search:
   field: post
   content: true
   format: html
+  limit: 10000
 
 mathjax:
   tags: none # or 'ams' or 'all'
