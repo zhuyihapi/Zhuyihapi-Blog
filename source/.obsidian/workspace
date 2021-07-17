@@ -1,0 +1,89 @@
+{
+  "main": {
+    "id": "a922de8338aabd60",
+    "type": "split",
+    "children": [
+      {
+        "id": "dfdb240b367fd956",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "056808b234514b30",
+    "type": "split",
+    "children": [
+      {
+        "id": "0ebf214c82918d41",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7685b389451945e1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "90b681eb3970238b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "dc91a919b9a911de",
+    "type": "split",
+    "children": [
+      {
+        "id": "2b9452f441016115",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5217f3bd459f6b32",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "dfdb240b367fd956",
+  "lastOpenFiles": [
+    "_posts/电脑它又不好了.md"
+  ]
+}
